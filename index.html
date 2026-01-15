@@ -23,7 +23,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: url('https://triratna-perspectives.com/sites/all/themes/responsive_blog/images/slide-image-2.jpg') no-repeat center center fixed;
+            background: url('https://thebuddhistcentre.com/sites/default/files/styles/gallery_full_size/public/users/11763/groups/images/20231209_165845.jpg?itok=wNub9FRV') no-repeat center center fixed;
             background-size: cover;
             position: relative;
         }
@@ -59,9 +59,17 @@
             margin-bottom: 30px;
         }
 
-        form {
+        /* Razorpay form wrapper */
+        .razorpay-form-wrapper {
             display: flex;
             justify-content: center;
+            width: 100%; /* make the button span full container width */
+        }
+
+        .razorpay-form-wrapper iframe {
+            width: 100% !important;  /* override Razorpay default width */
+            height: 50px !important;  /* make height smaller */
+            max-width: 350px; /* optional max width */
         }
 
         @media (max-width: 500px) {
@@ -73,13 +81,25 @@
             .container {
                 padding: 30px 20px;
             }
+
+            .razorpay-form-wrapper iframe {
+                max-width: 100%; /* fit mobile screens */
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Subscribe with Razorpay</h1>
-        <form><script src="https://cdn.razorpay.com/static/widget/subscription-button.js" data-subscription_button_id="pl_RzjUMnuSOLhA3I" data-button_theme="rzp-dark-standard" async> </script> </form>
+        <div class="razorpay-form-wrapper">
+            <form>
+                <script src="https://cdn.razorpay.com/static/widget/subscription-button.js" 
+                        data-subscription_button_id="pl_RzjUMnuSOLhA3I" 
+                        data-button_theme="rzp-dark-standard" 
+                        async> 
+                </script>
+            </form>
+        </div>
     </div>
 </body>
 </html>
